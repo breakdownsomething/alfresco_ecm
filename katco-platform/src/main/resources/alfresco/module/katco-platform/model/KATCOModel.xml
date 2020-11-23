@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.alfresco.org/model/dictionary/1.0" name="katco:KATCOModel">
+	<description>Content model for the company KATCO JV</description>
+	<author>Administrator</author>
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+		<import uri="http://www.alfresco.org/model/datalist/1.0" prefix="dl"/>
+	</imports>
+	<namespaces>
+		<namespace uri="http://katco.com/model/content/1.0" prefix="katco"/>
+	</namespaces>
+	<data-types/>
+	<constraints>
+		<constraint name="katco:generalDocumentTypeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>Business Trip Report - Отчет о командировке</value>
+					<value>Contract - Контракт</value>
+					<value>Directive - Распоряжение</value>
+					<value>Explanation Note - Объяснительная записка</value>
+					<value>Information Report - Информационный отчет</value>
+					<value>Memo - Служебная записка</value>
+					<value>Minutes of Meeting - Протокол Собрания</value>
+					<value>Non-Conformity Report - Отчет о несоответствии</value>
+					<value>Permitting document - Разрешительный документ</value>
+					<value>Presentation - Презентация</value>
+					<value>Protocol of Decisions - Протокол решений</value>
+					<value>Request For Information - Запрос на информацию</value>
+					<value>Research Report - Отчет об исследовании</value>
+					<value>Report - Отчет</value>
+					<value>Technical Conditions - Технические условия</value>
+					<value>Technical Justification - Техническое обоснование</value>
+					<value>Technical Note - Техническая записка</value>
+					<value>Technical Specification - Техническая спецификация</value>
+					<value>Training Report - Отчет об обучении</value>
+					<value>Weekly Report - Еженедельный отчет</value>				
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="katco:generalStatusOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>Draft - Черновик</value>
+					<value>Approved - Утвержден</value>
+					<value>Cancelled - Отменен</value>
+					<value>Achived - Архивирован</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="katco:senderCategoryOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>JSC NAC Kazatomprom - НАК Казатомпром</value>
+					<value>Supplier - Поставщик</value>
+					<value>State body - Государственный орган</value>
+					<value>Organization - Организация</value>
+					<value>ORANO - ОРАНО</value>
+					<value>Other - Другой</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="katco:letterCategoryOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>Сomplaint - Жалоба</value>
+					<value>Inspection - Проверка</value>
+					<value>Standard - Стандарт</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="katco:organizationalUnitOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>GD</value>
+					<value>PD</value>
+					<value>LD</value>
+					<value>FD</value>
+					<value>HSEPRD</value>
+					<value>PURD</value>
+					<value>GEOS</value>
+					<value>HRD</value>
+					<value>TD</value>
+					<value>PLANT</value>
+					<value>MAIN</value>
+					<value>DEM</value>
+					<value>LOGD</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="katco:letterIncomingStausOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>For Info</value>
+					<value>OUT_№</value>
+					<value>Ongoing</value>
+				</list>
+			</parameter>
+		</constraint>
+	</constraints>
+	<types>
+		<type name="katco:letter">
+			<title>Letter</title>
+			<description>Letter</description>
+			<parent>katco:generic</parent>
+			<properties>
+				<property name="katco:letterRegistrationNumber">
+					<title>Registration number</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects>
+				<aspect>katco:attachable</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="katco:letout">
+			<title>Letter Outgoing</title>
+			<description>Letter Outgoing</description>
+			<parent>katco:letter</parent>
+			<properties>
+				<property name="katco:letoutSentDate">
+					<title>Sent Date</title>
+					<type>d:datetime</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:letoutTo">
+					<title>To</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="katco:letoutCategory">
+					<title>Category</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:letterCategoryOptions" />
+					</constraints>
+				</property>
+				<property name="katco:letoutDirection">
+					<title>Direction</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:organizationalUnitOptions" />
+					</constraints>
+				</property>
+			</properties>
+			<associations>
+				<child-association name="katco:letoutRequestedByRef">
+					<title>Requested by</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>false</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+					<duplicate>false</duplicate>
+					<propagateTimestamps>false</propagateTimestamps>
+				</child-association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects>
+				<!-- <aspect>katco:attachable</aspect> -->
+			</mandatory-aspects>
+		</type>
+		<type name="katco:letin">
+			<title>Letter Incoming</title>
+			<description>Letter Incoming</description>
+			<parent>katco:letter</parent>
+			<properties>
+				<property name="katco:letinReceiveDate">
+					<title>Receive date</title>
+					<type>d:datetime</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:letinSenderCategory">
+					<title>Sender Category</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:senderCategoryOptions" />
+					</constraints>
+				</property>
+				<property name="katco:letinOriginalNumber">
+					<title>Original #</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="katco:letinCategory">
+					<title>Category</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:letterCategoryOptions" />
+					</constraints>
+				</property>
+				<property name="katco:letinOriginator">
+					<title>Originator</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="katco:letinDepartmentPosition">
+					<title>Department, Position</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="katco:letinDeadLine">
+					<title>Deadline</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:letinRecipient">
+					<title>Recipient</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:organizationalUnitOptions" />
+					</constraints>
+				</property>
+				<property name="katco:letinStatus">
+					<title>Status</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:letterIncomingStausOptions"/>
+					</constraints>
+				</property>
+			</properties>
+			<associations>
+				<child-association name="katco:letinFromRef">
+					<title>From</title>
+					<source>
+						<mandatory>true</mandatory>
+						<many>false</many>
+					</source>
+					<target>
+						<class>katco:externalSenderListItem</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</child-association>
+				<child-association name="katco:letinOutgoingRef">
+					<title>Reply</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>katco:letout</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</child-association>
+				<child-association name="katco:letinExecutorRef">
+					<title>Executors</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+					<duplicate>false</duplicate>
+					<propagateTimestamps>false</propagateTimestamps>
+				</child-association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects>
+				<!-- <aspect>katco:attachable</aspect> -->
+				<aspect>katco:translatable</aspect>
+			</mandatory-aspects>	
+		</type>
+		<type name="katco:general">
+			<title>General Document</title>
+			<parent>katco:generic</parent>
+			<properties>
+				<property name="katco:generalDocumentType">
+					<title>Document type</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>false</tokenised>
+						<facetable>true</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:generalDocumentTypeOptions" />
+					</constraints>
+				</property>
+				<property name="katco:generalCreationDate">
+					<title>Creation date</title>
+					<type>d:datetime</type>
+					<mandatory>true</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:generalMoreRecipients">
+					<title>More Recipient(s)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>false</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:generalStatus">
+					<title>Status</title>
+					<type>d:text</type>
+					<mandatory>true</mandatory>
+					<index enabled="true">
+						<atomic>true</atomic>
+						<stored>false</stored>
+						<tokenised>false</tokenised>
+						<facetable>true</facetable>
+					</index>
+					<constraints>
+						<constraint ref="katco:generalStatusOptions"/>
+					</constraints>
+				</property>
+				<property name="katco:generalConfidentialityFlag">
+					<title>Confidentiality Flag</title>
+					<type>d:boolean</type>
+					<mandatory>false</mandatory>
+					<default>false</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+			</properties>
+			<associations>
+				<association name="katco:generalAgreedBy">
+					<title>Agreed by</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<association name="katco:generalApprovedBy">
+					<title>Approved by</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<association name="katco:generalRecipients">
+					<title>Recipient(s)</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<association name="katco:generalCopyTo">
+					<title>Copy to</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:person</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<!--
+				<association name="katco:generalAttachments">
+					<title>Attachment(s)</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:content</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<association name="katco:generalTranslations">
+					<title>Translation(s)</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:content</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				-->
+			</associations>
+			<overrides/>
+			<mandatory-aspects>
+				<aspect>katco:attachable</aspect>
+				<aspect>katco:translatable</aspect>
+			</mandatory-aspects>
+		</type>
+		<type name="katco:generic">
+			<title>Katco Generic</title>
+			<description>Generic root type for all the custom Katco document types</description>
+			<parent>cm:content</parent>
+			<properties>
+                <property name="katco:pdContract">
+                    <title>Contract</title>
+                    <type>d:text</type>
+                    <mandatory>false</mandatory>
+                    <index enabled="true">
+                        <tokenised>true</tokenised>
+                        <facetable>false</facetable>
+                    </index>
+                </property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="katco:employeeListItem">
+			<title>Employee List</title>
+			<description>Employee List including Name and Title</description>
+			<parent>dl:dataListItem</parent>
+			<properties/>
+			<associations/>
+		</type>
+		<type name="katco:externalSenderListItem">
+			<title>External Sender List</title>
+			<description>External Sender List</description>
+			<parent>dl:dataListItem</parent>
+			<properties/>
+			<associations/>
+		</type>
+		<type name="katco:numerator">
+			<title>Document numerator</title>
+			<description>Custom Katco Document numerator</description>
+			<parent>cm:folder</parent>
+			<properties>
+				<property name="katco:numeratorValue">
+					<title>Current value</title>
+					<type>d:int</type>
+					<mandatory>false</mandatory>
+					<default>0</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="katco:numeratorPeriod">
+					<title>Period</title>
+					<type>d:int</type>
+					<mandatory>false</mandatory>
+					<default>0</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<!--
+		<type name="katco:pdContractListItem">
+			<title>PD Contract List</title>
+			<description>KATCO PD Contract List</description>
+			<parent>dl:dataListItem</parent>
+			<properties/>
+			<associations/>
+		</type>
+		-->
+	</types>
+	<aspects>
+	<!--
+		<aspect name="katco:pdContractRelated">
+            <title>Related to a PD Contract</title>
+            <properties/>
+			<associations>
+				<association name="katco:pdContractLink">
+					<title>PD Contract (link)</title>
+                    <source>
+                        <mandatory>false</mandatory>
+                        <many>true</many>
+                    </source>
+                    <target>
+                        <class>katco:pdContractListItem</class>
+                        <mandatory>false</mandatory>
+                        <many>false</many>
+                    </target>
+                </association>
+            </associations>
+            <overrides/>
+            <mandatory-aspects/>
+        </aspect>
+		-->
+		<aspect name="katco:attachable">
+            <title>Attachable</title>
+            <properties/>
+			<associations>
+				<association name="katco:attachments">
+					<title>Attachments</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:content</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+                </association>
+            </associations>
+            <overrides/>
+            <mandatory-aspects/>
+        </aspect>
+		<aspect name="katco:translatable">
+            <title>Translatable</title>
+            <properties/>
+			<associations>
+				<association name="katco:translations">
+					<title>Translations</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>cm:content</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+                </association>
+            </associations>
+            <overrides/>
+            <mandatory-aspects/>
+        </aspect>
+	</aspects>
+</model>

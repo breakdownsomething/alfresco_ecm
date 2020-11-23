@@ -39,4 +39,35 @@
             </list>
         </property>
     </bean>
+
+
+    <!-- KATCO Modeles -->
+    <bean id="com.katco.customcontentmodelrepo.dictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
+        <property name="models">
+            <list>
+                <value>alfresco/module/${project.artifactId}/model/KATCOModel.xml</value>
+            </list>
+        </property>
+        <property name="labels">
+            <list>
+                <!-- Bootstrap Resource Bundles for data list type and properties -->
+                <value>alfresco/module/${project.artifactId}/messages/KATCOModel</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="example.dictionaryBootstrap" parent="dictionaryModelBootstrap" depends-on="dictionaryBootstrap">
+        <property name="models">
+            <list>
+                <value>alfresco/module/${project.artifactId}/model/safeLegacyModel.xml</value>
+            </list>
+        </property>
+        <property name="labels">
+            <list>
+                <!-- Bootstrap Resource Bundles for data list type and properties -->
+                <value>alfresco/module/${project.artifactId}/messages/safeLegacyModel</value>
+            </list>
+        </property>
+    </bean>
+
+
 </beans>

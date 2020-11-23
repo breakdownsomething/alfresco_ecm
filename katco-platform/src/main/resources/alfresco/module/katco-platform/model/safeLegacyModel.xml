@@ -1,0 +1,1536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.alfresco.org/model/dictionary/1.0" name="safe:SAFE-Legacy">
+	<description>SAFE Data Model</description>
+	<author>Administrator</author>
+	<imports>
+		<import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+		<import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+	</imports>
+	<namespaces>
+		<namespace uri="http://katco.com/safe/legacy/1.0" prefix="safe"/>
+	</namespaces>
+	<data-types/>
+	<constraints>
+		<constraint name="safe:ka_areaOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>0 ~ GEN - General Documents</value>
+					<value>1 ~ TKDN - Turkuduk North</value>
+					<value>2 ~ TKDS - Turkuduk South</value>
+					<value>3 ~ MYKS - Muyunkun South</value>
+					<value>4 ~ MYKC - Muyunkun Center</value>
+					<value>5 ~ CAPB - Transshipment base</value>
+					<value>6 ~ BASE - Base Camp</value>
+					<value>7 ~ South Tortkusuk New</value>
+					<value>9 ~ OTHR - Other Sites</value>
+				</list>
+			</parameter>
+		</constraint>
+		<constraint name="safe:ka_subareaOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>00 ~ No Sub Area</value>
+					<value>02 ~ Plant</value>
+					<value>05 ~ Infrastructure</value>
+					<value>06 ~ Modification</value>
+					<value>07 ~ Piping</value>
+					<value>08 ~ Electrical lines</value>
+				</list>
+			</parameter>
+		</constraint>
+
+		<constraint name="safe:unitOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>K4 ~ KATCO 4000</value>
+					<value>Technical Direction</value>
+					<value>Financial Direction</value>
+					<value>Health, Safety, Environment, Radiation Protection and Social Direction</value>
+					<value>Human Resources Direction</value>
+					<value>Legal Direction</value>
+					<value>General Direction</value>
+					<value>Geosciences Direction</value>
+					<value>Purchasing Direction</value>
+					<value>Project Direction</value>
+					<value>Modification</value>
+					<value>KAT ~ KATCO</value>
+				</list>
+			</parameter>
+		</constraint>
+
+		<constraint name="safe:doc_typeOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>ACT ~ Act</value>
+					<value>CBT ~ Cost bid tabulation</value>
+					<value>CFT ~ Call For Tender</value>
+					<value>CN ~ Calculation note</value>
+					<value>CRF ~ Certificates / Сертификаты</value>
+					<value>CTR ~ Contract / Контракт</value>
+					<value>DI ~ Diagram</value>
+					<value>DIR ~ Directive</value>
+					<value>DR ~ Directive / Распоряжение</value>
+					<value>DRW ~ Drawings (other types)</value>
+					<value>DTI ~ Design task for object of infrastructure prescription</value>
+					<value>DTP ~ Design task for object of productive prescription</value>
+					<value>EN ~ Explanation Note</value>
+					<value>EPN ~ Environmental Protection Note</value>
+					<value>GEA ~ General Arrangement</value>
+					<value>GEN ~ General Explanatory Note</value>
+					<value>HRMEMO ~ Memo HRD</value>
+					<value>INS ~ Instructions</value>
+					<value>Информационный отчет</value>
+					<value>JD ~ Job Description / Должностная Инструкция</value>
+					<value>LAY ~ Layout</value>
+					<value>LCS ~ Licenses / Лицензии</value>
+					<value>LET ~ Letter</value>
+					<value>LETIN ~ Letter Incoming / Входящее письмо</value>
+					<value>LETOUT ~ Letter Outgoing / Исходящее письмо</value>
+					<value>LL ~ List</value>
+					<value>MAN ~ Manual / Технологический регламент</value>
+					<value>MB ~ Mass Balance</value>
+					<value>MEM - MEMO_Служебная записка_Note interne</value>
+					<value>MEMO ~ MEMO-Note Interne / Служебная Записка</value>
+					<value>MOM ~ Minutes of Meeting / Протокол Собрания</value>
+					<value>MTO ~ Material Take Off</value>
+					<value>NCR ~ Non-Conformity Report</value>
+					<value>NM ~ Nomenclature, list</value>
+					<value>NMT ~ Files Nomenclature</value>
+					<value>ORD - Order_Приказ_Note de Service</value>
+					<value>ORDER ~ Order / Приказ</value>
+					<value>ORG - Organigram</value>
+					<value>PFD ~ Process Flow Diagram</value>
+					<value>PID ~ Process and Instrumentation Diagram</value>
+					<value>PLAN ~ Plan</value>
+					<value>POD ~ Protocol of Decisions / Протокол Решений</value>
+					<value>PR ~ Purchasing Request</value>
+					<value>PRES ~ Presentation / Презентация</value>
+					<value>PRJ ~ Project</value>
+					<value>PRM ~ Permitting documents / Разрешительные документы</value>
+					<value>PRO ~ Procedure/ Процедура</value>
+					<value>REP ~ Weekly Reports of Project Direction / Еженедельные Отчеты Дирекции по Проектам</value>
+					<value>REPPC ~ Reports of Project Control Department/ Отчеты Департамента по Контролю Проектов</value>
+					<value>RER ~ Rapport d'études et de recherches</value>
+					<value>RFI ~ Request For Information / Запрос на информацию</value>
+					<value>RGT ~ Regulation</value>
+					<value>RPE ~ Rapport des Etudes</value>
+					<value>RPM ~ Rapport de mission</value>
+					<value>SOW ~ Scope of work for Modification and Infrastructure projects</value>
+					<value>SP ~ Technical Specification</value>
+					<value>STD ~ Standards / Стандарты</value>
+					<value>STI - Форма оценки персонала</value>
+					<value>TC ~ Technical Conditions/Технические условия</value>
+					<value>TJ ~ Technical Justification</value>
+					<value>TN -Technical note</value>
+					<value>TRAD ~ Traduction</value>
+					<value>TRF ~ Translation Request Form</value>
+					<value>TS ~ Technical specifications</value>
+					<value>TSI ~ Transmittal In</value>
+					<value>TSO ~ Transmittal Out</value>
+					<value>UFD ~ Utility Flow Diagram</value>
+					<value>WR ~ Weekly Report</value>
+				</list>
+			</parameter>
+		</constraint>
+
+		<constraint name="safe:ar_statusOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>AFC ~ Approved for Construction</value>
+					<value>AFI ~ Approved for Implementation</value>
+					<value>AFP ~ Approved for Purchase</value>
+					<value>APP ~ Approved</value>
+					<value>ARC ~ Archived</value>
+					<value>ASB ~ As-built</value>
+					<value>CAN ~ Cancelled</value>
+					<value>DFT ~ Draft</value>
+					<value>IFA ~ Issued for approval</value>
+					<value>IFD ~ Issued for design</value>
+					<value>IFE ~ Issued for enquiry</value>
+					<value>IFI ~ Issued for Information</value>
+					<value>IFM ~ Issued for Implementation</value>
+					<value>IFP ~ Issued for purchase</value>
+					<value>IFR ~ Issued For Review and Comments</value>
+					<value>IFT ~ issued for tender</value>
+					<value>IP ~ In Progress</value>
+					<value>PUB ~ Public</value>			
+				</list>
+			</parameter>
+		</constraint>
+
+
+		<constraint name="safe:disciplineOptions" type="LIST">
+			<parameter name="allowedValues">
+				<list>
+					<value></value> <!-- Empty for default search -->
+					<value>A.020.00.00 ~ Люк обслуживания Ду=600 мм</value>
+					<value>A.025.00.00 ~ Бак расходный для серной кислоты</value>
+					<value>A.030.00.00 ~ Бак V=300 м3</value>
+					<value>A.041.00.00 ~ Грязеотстойник объемом 3,6 м3</value>
+					<value>A.042.00.00 ~ Маслоуловитель объемом 0,6 м3</value>
+					<value>A.083.00.00 ~ Колонна СНК-3М</value>
+					<value>A.086.00.00 ~ Сито контрольное</value>
+					<value>A.088.00.00 ~ Теплообменник-подогреватель</value>
+					<value>A.088.01.00 ~ Рама</value>
+					<value>A.088.02.00 ~ Элемент</value>
+					<value>A.088.03.00 ~ Колено</value>
+					<value>A.088.04.00 ~ Элемент</value>
+					<value>A.090.00.00 ~ Окно смотровое Ду 100 Ру 10</value>
+					<value>A.090.01.00 ~ Корпус</value>
+					<value>A.091.00.00 ~ Бак V=10 m3</value>
+					<value>A.091.01.00 ~ Бак</value>
+					<value>A.091.02.00 ~ Крышка</value>
+					<value>A.091.03.00 ~ Люк</value>
+					<value>A.092.00.00 ~ Чан контактный V=10 m3</value>
+					<value>A.092.01.00 ~ Бак</value>
+					<value>A.092.02.00 ~ Крышка</value>
+					<value>A.092.03.00 ~ Вал</value>
+					<value>A.092.04.00 ~ Рама</value>
+					<value>A.092.05.00 ~ Кронштейн</value>
+					<value>A.092.06.00 ~ Ограждение</value>
+					<value>A.092.07.00 ~ Труба аэрационная</value>
+					<value>A.092.08.00 ~ Люк</value>
+					<value>A.093.00.00 ~ Бак V=150 m3</value>
+					<value>A.093.01.00 ~ Люк обслуживания Ду 600</value>
+					<value>A.093.02.00 ~ Элемент крыши</value>
+					<value>A.094.00.00 ~ Бак V=100 m3</value>
+					<value>A.094.01.00 ~ Люк обслуживания Ду=600</value>
+					<value>A.094.02.00 ~ Элемент крыши</value>
+					<value>A.094.03.00 ~ Лестница</value>
+					<value>A.094.04.00 ~ Обечайка</value>
+					<value>A.095.00.00 ~ Реактор приготовления щелочи</value>
+					<value>A.095.01.00 ~ Крышка</value>
+					<value>A.095.02.00 ~ Клапан</value>
+					<value>A.095.03.00 ~ Решетка</value>
+					<value>A.095.04.00 ~ Труба</value>
+					<value>A.095.05.00 ~ Уголок</value>
+					<value>A.095.06.00 ~ Отвод</value>
+					<value>A.095.07.00 ~ Поплавок</value>
+					<value>A.095.08.00 ~ Корпус</value>
+					<value>A.095.09.00 ~ Стойка</value>
+					<value>A.096.00.00 ~ Осушитель воздуха</value>
+					<value>A.096.01.00 ~ Крышка</value>
+					<value>A.096.02.00 ~ Корпус</value>
+					<value>A.097.00.00 ~ Чан контактный V=10 m3</value>
+					<value>A.097.01.00 ~ Бак</value>
+					<value>A.097.02.00 ~ Крышка</value>
+					<value>A.098.00.00 ~ Бак объемом 40 м3</value>
+					<value>A.099.00.00 ~ Ванна для дезактивации мелкого оборудования</value>
+					<value>A.100.00.00 ~ Распределитель смолы</value>
+					<value>A.102.00.00 ~ Труба маточников денитрации</value>
+					<value>A.103.00.00 ~ Коллектор</value>
+					<value>A.104.00.00 ~ Опора трубы Ду 700</value>
+					<value>A.105.00.00 ~ Распределитель смолы</value>
+					<value>A.106.00.00 ~ Установка гидроэжектора</value>
+					<value>A.138.00.00 ~ Бак объемом 300 м3</value>
+					<value>K.1818.000.00 ~ Люк обслуживания Ду 600</value>
+					<value>K.1956.070.00 ~ Кронштейн</value>
+					<value>K.2007.000.00 ~ Скруббер пенный</value>
+					<value>K.2007.010.00 ~ Крышка</value>
+					<value>K.2007.020.00 ~ Секция верхняя</value>
+					<value>K.2007.030.00 ~ Секция средняя</value>
+					<value>K.2007.040.00 ~ Бак</value>
+					<value>K.2007.050.00 ~ Патрубок</value>
+					<value>K.2007.060.00 ~ Тройник</value>
+					<value>K.2007.070.00 ~ Труба оросительная</value>
+					<value>K.2007.080.00 ~ Решетка нижняя</value>
+					<value>K.2007.090.00 ~ Окно</value>
+					<value>K.2007.100.00 ~ Труба оросительная</value>
+					<value>K.2007.110.00 ~ Крышка</value>
+					<value>K.2007.120.00 ~ Решетка средняя</value>
+					<value>K.2007.130.00 ~ Отбойник</value>
+					<value>K.2064.060.00 ~ Крышка люка</value>
+					<value>K.2083.000.00 ~ Осушитель воздуха</value>
+					<value>K.2083.010.00 ~ Крышка</value>
+					<value>K.2083.020.00 ~ Корпус</value>
+					<value>K.2103.000.00 ~ Люк обслуживания 500 * 500</value>
+					<value>K.2116.000.00 ~ Патрубок Ду 50</value>
+					<value>K.2116.010.00 ~ Патрубок</value>
+					<value>K.2141.000.00 ~ Емкость V=600 m3</value>
+					<value>K.2141.010.00 ~ Обечайка</value>
+					<value>K.2141.020.00 ~ Днище</value>
+					<value>K.2141.030.00 ~ Диск крыши</value>
+					<value>K.2141.040.00 ~ Кронштейн</value>
+					<value>K.2141.050.00 ~ Труба</value>
+					<value>K.2141.060.00 ~ Поручень</value>
+					<value>K.2141.070.00 ~ Крышка люка</value>
+					<value>K.2141.080.00 ~ Кронштейн</value>
+					<value>K.2141.090.00 ~ Труба</value>
+					<value>K.2141.100.00 ~ Люк</value>
+					<value>K.2145.000.00 ~ Опора трубы Ду 500</value>
+					<value>K.2185.000.00 ~ Емкость Vраб.=25 m3 с фильтром</value>
+					<value>K.2185.010.00 ~ Фильтр</value>
+					<value>K.2185.020.00 ~ Крышка</value>
+					<value>K.2185.030.00 ~ Корпус фильтра</value>
+					<value>K.2199.000.00 ~ Патрубок Ду65</value>
+					<value>K.2199.010.00 ~ Патрубок</value>
+					<value>K.2200.000.00 ~ Патрубок Ду50</value>
+					<value>K.2200.010.00 ~ Патрубок</value>
+					<value>K.2212.000.00 ~ Колонна SNK-3M</value>
+					<value>K.2212.010.00 ~ Секция опорная</value>
+					<value>K.2212.020.00 ~ Оголовок загрузки</value>
+					<value>K.2212.030.00 ~ Балка</value>
+					<value>K.2212.040.00 ~ Сектор крыши</value>
+					<value>K.2212.050.00 ~ Карман</value>
+					<value>K.2212.060.00 ~ Секция промежуточная</value>
+					<value>K.2212.070.00 ~ Секция промежуточная</value>
+					<value>K.2212.080.00 ~ Кронштейн</value>
+					<value>K.2212.090.00 ~ Лапа</value>
+					<value>K.2212.100.00 ~ Крышка люка</value>
+					<value>K.2215.000.00 ~ Отвод</value>
+					<value>K.2219.000.00 ~ Бак V=400 м3</value>
+					<value>K.2219.010.00 ~ Днище</value>
+					<value>K.2219.020.00 ~ Отвод</value>
+					<value>K.2219.030.00 ~ Диск крыши</value>
+					<value>K.2219.040.00 ~ Лист крыши</value>
+					<value>K.2219.050.00 ~ Поручень</value>
+					<value>K.2219.060.00 ~ Обечайка</value>
+					<value>K.2219.070.00 ~ Патрубок</value>
+					<value>K.2223.000.00 ~ Бункер V=6 m3</value>
+					<value>K.2223.010.00 ~ Корпус</value>
+					<value>K.2223.020.00 ~ Сито</value>
+					<value>K.2224.000.00 ~ Патрубок</value>
+					<value>K.2226.000.00 ~ Емкость V=600m3</value>
+					<value>K.2226.010.00 ~ Лист крыши</value>
+					<value>K.2226.020.00 ~ Диск крыши</value>
+					<value>K.2227.000.00 ~ Распределитель смолы</value>
+					<value>K.2231.000.00 ~ Распределитель сорбента</value>
+					<value>K.2234.000.00 ~ Опора трубы Ду 1000</value>
+					<value>K.2240.000.00 ~ Бак V=50 м3</value>
+					<value>K.2240.100.00 ~ Бак</value>
+					<value>K.2240.110.00 ~ Элемент крыши</value>
+					<value>K.2240.120.00 ~ Ушко</value>
+					<value>K.2240.130.00 ~ Поручень</value>
+					<value>K.2240.140.00 ~ Диск крыши</value>
+					<value>K.2240.150.00 ~ Отвод</value>
+					<value>K.2240.160.00 ~ Днище</value>
+					<value>K.2240.170.00 ~ Отстойник</value>
+					<value>K.2240.180.00 ~ Патрубок</value>
+					<value>K.2240.200.00 ~ Площадка обслуживания</value>
+					<value>K.2240.300.00 ~ Поручень</value>
+					<value>K.2241.000.00 ~ Скруббер 500</value>
+					<value>K.2243.000.00 ~ Опора трубы Ду 600</value>
+					<value>K.2245.000.00 ~ Емкость Vраб.=20 m3</value>
+					<value>K.2291.000.00 ~ Резервуар уравнительный</value>
+					<value>K.2291.010.00 ~ Крышка</value>
+					<value>K.2291.020.00 ~ Патрубок</value>
+					<value>K.2291.040.00 ~ Поручень</value>
+					<value>K.2293.000.00 ~ Усиление балок днища бака V=400</value>
+					<value>K.2300.000.00 ~ Бункер буферный</value>
+					<value>K.2300.021.00 ~ Патрубок</value>
+					<value>K.2300.030.00 ~ Люк</value>
+					<value>K.2300.040.00 ~ Патрубок</value>
+					<value>K.2301.000.00 ~ Шнек</value>
+					<value>K.2302.000.00 ~ Компоновка оборудования</value>
+					<value>K.2303.000.00 ~ Устройство для монтажа печи</value>
+					<value>K.2303.010.00 ~ Ролик</value>
+					<value>K.2303.020.00 ~ Опора</value>
+					<value>K.2321.000.00 ~ Бак V=5 м3</value>
+					<value>K.2321.100.00 ~ Бак</value>
+					<value>K.2321.120.00 ~ Корпус</value>
+					<value>K.2335.000.00 ~ Патрубок</value>
+					<value>K.2336.000.00 ~ Скруббер пенный 600 (реконструкция)</value>
+					<value>K.2337.000.00 ~ Скруббер пенный (реконструкция)</value>
+					<value>K.2344.000.00 ~ Переход</value>
+					<value>K.2345.000.00 ~ Переход</value>
+					<value>NON ~ Without discipline</value>
+					<value>АД ~ Motorroads</value>
+					<value>АЗ ~ Corrosion protection of structures</value>
+					<value>АИ ~ Interiors</value>
+					<value>АК ~ Complete integrated automation</value>
+					<value>АК.01 ~ Complete integrated automation 1</value>
+					<value>АК.02 ~ Complete integrated automation 2</value>
+					<value>АК.03 ~ Complete integrated automation 3</value>
+					<value>АК.04 ~ Complete integrated automation 4</value>
+					<value>АК.05 ~ Complete integrated automation 5</value>
+					<value>АК.06 ~ Complete integrated automation 6</value>
+					<value>АК.07 ~ Complete integrated automation 7</value>
+					<value>АК.08 ~ Complete integrated automation 8</value>
+					<value>АК.09 ~ Complete integrated automation 9</value>
+					<value>АК.10 ~ Complete integrated automation 10</value>
+					<value>АК.С ~ Complete integrated automation. Equipment specification</value>
+					<value>АК.С1 ~ Complete integrated automation. Equipment specification 1</value>
+					<value>АК.С2 ~ Complete integrated automation. Equipment specification 2</value>
+					<value>АПТ ~ Automatic fire-fighting</value>
+					<value>АПТ.С ~ Automatic fire-fighting. Equipment specification</value>
+					<value>АР ~ Architectural concepts</value>
+					<value>АР.И ~ Architectural concepts. Items</value>
+					<value>АРИ ~ Architectural Items</value>
+					<value>АС ~ Architectural and construction concepts</value>
+					<value>АС.ВР ~ Architectural and construction concepts. List.</value>
+					<value>АС.ОЛ ~ Architectural and construction concepts. Questionnaire.</value>
+					<value>АС.С ~ Architectural and construction concepts. Equipment specification</value>
+					<value>АС1 ~ Architectural and construction concepts 1</value>
+					<value>АС2 ~ Architectural and construction concepts 2</value>
+					<value>АСИ ~ Architectural and construction concepts. Items</value>
+					<value>АСИ-А1 ~ Architectural and construction concepts, Items</value>
+					<value>АСИ-ДЭ ~ Architectural and construction concepts. Items. Specification of additional elements</value>
+					<value>АСИ-ТР1 ~ Architectural and construction concepts. Items. Polyethylene tube</value>
+					<value>АТХ ~ Process control</value>
+					<value>АТХ.Н1 ~ Process control. External 1</value>
+					<value>АТХ.Н2 ~ Process control. External 2</value>
+					<value>АТХ.Н3 ~ Process control. External 3</value>
+					<value>АТХ.С ~ Process control. Equipment specification</value>
+					<value>ВВ ~ Off-site water pipelines.</value>
+					<value>ВВ.С ~ Off-site water pipelines. Equipment specification.</value>
+					<value>ВК ~ Water and sewer lines</value>
+					<value>ВК.ОЛ ~ Water and sewer lines. Qustionnaire list</value>
+					<value>ВК.С ~ Water and sewer lines. Equipment specification</value>
+					<value>ВК-АН ~ Water and sewer lines. Designer's inspection</value>
+					<value>ВСС ~ Off-site telecommunication networks</value>
+					<value>ВСС.ВМ ~ Off-site telecommunication networks. Material list</value>
+					<value>ВСС.С ~ Off-site telecommunication networks. Equipment specification</value>
+					<value>ВЭС ~ On-site power supply</value>
+					<value>ВЭС.ОЛ ~ On-site power supply. Qustionnaire list</value>
+					<value>ВЭС.С ~ On-site power supply. Equipment specification.</value>
+					<value>ГГС ~ Loud-speaking communication</value>
+					<value>ГГС.С ~ Loud-speaking communication. Equipment specification.</value>
+					<value>ГП ~ General Layout</value>
+					<value>ГПТ ~ Gas fire-fighting</value>
+					<value>ГПТ.С ~ Gas fire-fighting. Equipment specification</value>
+					<value>ГР ~ Hydrotechnical concepts</value>
+					<value>ГР.С ~ Hydrotechnical concepts. Equipment specification</value>
+					<value>ГСВ ~ Gas supply (internal means)</value>
+					<value>ГСН ~ External gas pipelines</value>
+					<value>ГТ ~ general alyout and structure of transport</value>
+					<value>ГТ.ВР ~ General layout and structure of transport. Work list</value>
+					<value>ГТ-КМ ~ general alyout and structure of transport. Steel structure</value>
+					<value>Д.729.021.00 ~ Детали</value>
+					<value>ИЗ ~ engineering survey</value>
+					<value>КД ~ wooden structures</value>
+					<value>КЖ ~ Reinforced concrete structures</value>
+					<value>КЖ.РС1 ~ Reinforced concrete structures. Calculation 1</value>
+					<value>КЖ.РС2 ~ Reinforced concrete structures. Calculation 2</value>
+					<value>КЖ1 ~ Reinforced concrete structures 1</value>
+					<value>КЖ1И ~ Reinforced concrete structures 1. Items</value>
+					<value>КЖ2 ~ Reinforced concrete structures 2</value>
+					<value>КЖ2И ~ Reinforced concrete structures 2. Items</value>
+					<value>КЖ-АН ~ Reinforced concrete structures. Designer's inspection</value>
+					<value>КЖИ ~ Reinforced concrete structures. Items</value>
+					<value>КК ~ Cable Sewage</value>
+					<value>КМ ~ Steel structures</value>
+					<value>КМ.С ~ Steel structures. Equipment specification</value>
+					<value>КМ.СМ ~ Steel structures. Rolled metal products specification</value>
+					<value>КМ1 ~ Steel structures 1</value>
+					<value>КМ1.СМ ~ Steel structures specification 1</value>
+					<value>КМ2 ~ Steel structures 2</value>
+					<value>КМ2.СМ ~ Steel structures specification 2</value>
+					<value>КМ3 ~ Steel structures 3</value>
+					<value>КМ-АН ~ Steel structures. Designer's inspection</value>
+					<value>КМД ~ Metal detail structures</value>
+					<value>ЛЧ ~ Linear part</value>
+					<value>ЛЧ.С ~ Linear part. Equipment specification.</value>
+					<value>ЛЧ.С1 ~ Linear part. Equipment specification 1</value>
+					<value>ЛЧ.С2 ~ Linear part. Equipment specification 2</value>
+					<value>ЛЧ1 ~ Linear part 1</value>
+					<value>ЛЧ2 ~ Linear part 2</value>
+					<value>НВ ~ External systems of water supply</value>
+					<value>НВ.С ~ External systems of water supply. Equipment specification.</value>
+					<value>НВК ~ Network, water supply and sewer</value>
+					<value>НВК.АС ~ Network, water supply and sewer. Archit and constr concepts.</value>
+					<value>НВК.ОЛ ~ Network, water supply and sewer. Questionary</value>
+					<value>НВК.ОЛ1 ~ Network, water supply and sewer. Questionary1</value>
+					<value>НВК.ОЛ2 ~ Network, water supply and sewer. Questionary2</value>
+					<value>НВК.С ~ Network, water supply and sewer. Equipment Specification</value>
+					<value>НК ~ External systems of canalization</value>
+					<value>НК.С ~ External systems of canalization. Equipment Specification.</value>
+					<value>НСС ~ External systems of connections</value>
+					<value>НСС.ВМ ~ External systems of connections. Materials list</value>
+					<value>НСС.Л ~ External systems of connections. List</value>
+					<value>НСС.С ~ External systems of connections. Equipment Spec</value>
+					<value>ОВ ~ HVAC</value>
+					<value>ОВ.Л ~ HVAC. Equipment Specification</value>
+					<value>ОВ.ОЛ ~ HVAC. Questionnaire list</value>
+					<value>ОВ.ОЛ1 ~ HVAC. Questionnaire list 1</value>
+					<value>ОВ.ОЛ2 ~ HVAC. Questionnaire list 2</value>
+					<value>ОВ.С ~ HVAC. Equipment Specification</value>
+					<value>ОВ.УК ~ HVAC. Scheme of ventilation bonding support</value>
+					<value>ОВОС ~ Environmental Impact Assessment</value>
+					<value>ОС ~ Общеплощадочные материалы</value>
+					<value>ПЖ ~ Railway lines</value>
+					<value>ПЗ ~ Explanation note</value>
+					<value>ПОС ~ Project of construction organization</value>
+					<value>ПП ~ Passport of project</value>
+					<value>ППР ~ Work Production Plan</value>
+					<value>ПС ~ Fire alarm</value>
+					<value>ПС.Л ~ Fire alarm. List</value>
+					<value>ПС.С ~ Fire alarm. Equipment Specification</value>
+					<value>ПС1 ~ Fire alarm 1</value>
+					<value>ПС1.C ~ Fire alarm. Equipment specification 1</value>
+					<value>ПТ ~ Firefighting</value>
+					<value>ПТ.С ~ Firefighting. Equipment specification</value>
+					<value>ПЭ ~ Energy passport</value>
+					<value>РАС ~ Calculations</value>
+					<value>РТ ~ Radio communication, broadcasting and television</value>
+					<value>СП ~ Situation plan</value>
+					<value>СС ~ Communications systems</value>
+					<value>СС.ВМ ~ Communications systems. Material list</value>
+					<value>СС.С ~ Communications systems. Equipment specification</value>
+					<value>ТК ~ Process communications</value>
+					<value>ТК.ВТ ~ Process communications. Pipeline list</value>
+					<value>ТК.КЖ ~ Process communications. Reinforced concrete structures.</value>
+					<value>ТК.КЖИ ~ Process communications. Reinforced concrete structures. Items.</value>
+					<value>ТК.С ~ Process communications. Equipment Specification</value>
+					<value>ТК.С1 ~ Process communications. Equipment Specification 1</value>
+					<value>ТК.С2 ~ Process communications. Equipment Specification 2</value>
+					<value>ТК1 ~ Process communications 1</value>
+					<value>ТК2 ~ Process communications 2</value>
+					<value>ТМ ~ Mechanical annexes of boilers</value>
+					<value>ТМ.1 ~ Mechanical annexes of boilers 1</value>
+					<value>ТМ.1.ОЛ ~ Mechanical annexes of boilers 1. Questionnaire list.</value>
+					<value>ТМ.1.С ~ Mechanical annexes of boilers 1. Equipment specification</value>
+					<value>ТМ.ОЛ ~ Mechanical annexes of boilers. Questionnaire list.</value>
+					<value>ТМ.ОЛ1 ~ Mechanical annexes of boilers. Questionnaire list 1.</value>
+					<value>ТМ.С ~ Mechanical annexes of boilers. Equipment specification</value>
+					<value>ТМ-АН ~ Mechanical annexes of boilers. Designer's inspection.</value>
+					<value>ТП ~ Fuel supply</value>
+					<value>ТП.С ~ Fuel supply. Equipment specification</value>
+					<value>ТС ~ Heat supply systems</value>
+					<value>ТС.КЖ ~ Heat supply systems. Reinforced concrete structures</value>
+					<value>ТС.КЖИ ~ Heat supply systems. Reinforced concrete structures. Items</value>
+					<value>ТС.С ~ Heat supply systems. Equipment specification</value>
+					<value>ТХ ~ Production technology</value>
+					<value>ТХ.ВТ ~ Production technology. Pipeline list</value>
+					<value>ТХ.ИТ1 ~ Production technology. Initial requirements 1</value>
+					<value>ТХ.ИТ2 ~ Production technology. Initial requirements 2</value>
+					<value>ТХ.ИТ3 ~ Production technology. Initial requirements 3</value>
+					<value>ТХ.ОЛ ~ Production technology. Questionnaire list</value>
+					<value>ТХ.С ~ Production technology. Equipment specification</value>
+					<value>ТХ.УК ~ Production technology. Joint node</value>
+					<value>ТХ1 ~ Production technology 1</value>
+					<value>ТХ1.С ~ Production technology 1. Equipment specification</value>
+					<value>ТХ2 ~ Production technology 2</value>
+					<value>ТХ2.ВТ ~ Production technology 2. Pipeline list</value>
+					<value>ТХ2.С ~ Production technology 2. Equipment specification</value>
+					<value>ТХБ ~ Production technology. Equipment location plan</value>
+					<value>ТХБ.С ~ Production technology. Equipment location plan. Equipment specification</value>
+					<value>ХС ~ Cold supply</value>
+					<value>ХС.КЖ ~ Cold supply. Reinforced concrete structures</value>
+					<value>ХС.КЖИ ~ Cold supply. Reinforced concrete structures. Items</value>
+					<value>ХС.С ~ Cold supply. Equipment specification</value>
+					<value>ЭГ ~ Lightning protection</value>
+					<value>ЭГ.С ~ Lightning protection. Specification.</value>
+					<value>ЭЛ ~ Electrical engineering</value>
+					<value>ЭЛ.С ~ Electrical engineering. Equipment specification.</value>
+					<value>ЭМ ~ Power equipment</value>
+					<value>ЭМ.ВМ ~ Power equipment. Materials list</value>
+					<value>ЭМ.Н1 ~ Power equipment. External 1</value>
+					<value>ЭМ.Н2 ~ Power equipment. External 2</value>
+					<value>ЭМ.Н3 ~ Power equipment. External 3</value>
+					<value>ЭМ.Н4 ~ Power equipment. External 4</value>
+					<value>ЭМ.Н5 ~ Power equipment. External 5</value>
+					<value>ЭМ.ОЛ ~ Power equipment. Questionnaire list</value>
+					<value>ЭМ.ОЛ1 ~ Power equipment. Questionnaire list 1</value>
+					<value>ЭМ.С ~ Power equipment. Equipment specification</value>
+					<value>ЭМ1 ~ Power equipment 1</value>
+					<value>ЭМ1.С ~ Power equipment. Equipment specification 1</value>
+					<value>ЭМ-АН ~ Power equipment. Designer's inspection</value>
+					<value>ЭМ-АН.ВМ ~ Power equipment. Material list. Designer's inspection</value>
+					<value>ЭМИ ~ Power equipment. Items</value>
+					<value>ЭН ~ External electricity</value>
+					<value>ЭН.ОЛ ~ External electricity. Questionnaire list</value>
+					<value>ЭН.С ~ External electricity. Equipment specification</value>
+					<value>ЭО ~ Electrical lighting</value>
+					<value>ЭО.ВМ ~ Electrical lighting. Material list</value>
+					<value>ЭО.С ~ Electrical lighting. Equipment Specification</value>
+					<value>ЭОМ ~ Electrical lighting (internal). Materials</value>
+					<value>ЭОМ.С ~ Electrical lighting (internal). Materials. Equipment specification</value>
+					<value>ЭП ~ Passport of execution plan</value>
+					<value>ЭС ~ Mains, power, intrasite</value>
+					<value>ЭС.1 ~ Mains, power, intrasite 1</value>
+					<value>ЭС.1.С ~ Mains, power, intrasite 1. Equipment specification</value>
+					<value>ЭС.2 ~ Mains, power, intrasite 2</value>
+					<value>ЭС.2.С ~ Mains, power, intrasite 2. Equipment specification</value>
+					<value>ЭС.ВМ ~ Mains, power, intrasite. Materials list</value>
+					<value>ЭС.С ~ Mains, power, intrasite. Equipment Specification</value>
+					<value>ЭС.С1 ~ Mains, power, intrasite. Equipment Specification 1</value>
+					<value>ЭС.С2 ~ Mains, power, intrasite. Equipment Specification 2</value>
+					<value>ЭСН ~ Mains, power, intrasite. External</value>
+					<value>ЭСН.С ~ Mains, power, intrasite. External. Equipment specification</value>
+
+				</list>
+			</parameter>
+		</constraint>
+
+	</constraints>
+	<types>
+		<type name="safe:ar_hrdmemo">
+			<title>SAFE HRD Memo</title>
+			<parent>safe:ar_general</parent>
+			<properties>
+				<property name="safe:ka_author_position">
+					<title>Author position</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_approver_position">
+					<title>Approver position</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_agreed_position">
+					<title>Agreer position</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_hrd_agreed_by">
+					<title>Agreed by</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:pjc_translation">
+			<title>SAFE Translation</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:safe_out">
+			<title>SAFE Transmittal Outgoing</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations>
+				<association name="safe:transmitted_out">
+					<title>Transmitted Out</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:safe_tech_doc</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:dmc_jar">
+			<title>SAFE Jar</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:emc_report_design">
+			<title>SAFE Report Design Document</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:ioso_document">
+			<title>SAFE IOSO Document</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:safe_in">
+			<title>SAFE Transmittal Incoming</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:recipient">
+					<title>Recipient Company</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:issue_date">
+					<title>Date Received/Sent</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:originator_name">
+					<title>Originator Name</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations>
+				<association name="safe:transmitted_in">
+					<title>Transmitted Out</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:safe_tech_doc</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:dmc_tcf_activity_template">
+			<title>SAFE TCF  Activity template</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:spdf_document">
+			<title>SAFE Stamped PDF Rendition</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:pjc_navigation_c">
+			<title>SAFE Document</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:review_comment_doc">
+			<title>SAFE Review Comment Document</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:export_request">
+			<title>SAFE Export Request</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:safe_appendix">
+			<title>SAFE Appendix File</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:ar_geospr">
+			<title>SAFE GEOS Purchase Request</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:ka_sap_code">
+					<title>SAP personal code</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_material">
+					<title>Material/Equipment</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_sap_no">
+					<title>SAP №</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_three_letters_code">
+					<title>Three-letter code</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:base">
+			<title>SAFE Basic</title>
+			<parent>cm:content</parent>
+			<properties>
+				<property name="safe:ka_approved_by">
+					<title>Approved by</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_sent_date">
+					<title>Date Sent</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_creation_date">
+					<title>Creation Date</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ar_department">
+					<title>Department</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:subject">
+					<title>Subject</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:discipline">
+					<title>Discipline</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:disciplineOptions" />
+					</constraints>
+				</property>
+				<property name="safe:revision_date">
+					<title>Revision Date</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:contract">
+					<title>Contract</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:keywords">
+					<title>Keywords</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_contractor_number">
+					<title>External Document Number</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:revision">
+					<title>Revision Number</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_reply_req_str">
+					<title>Reply Required</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:a_stamp_date">
+					<title>Stamp Date</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ar_language">
+					<title>Language</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_folder">
+					<title>Folder</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:originator">
+					<title>Originating Company</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:unit">
+					<title>Project (Direction)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:unitOptions" />
+					</constraints>
+				</property>
+				<property name="safe:ar_service">
+					<title>Service</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:organization">
+					<title>Organization</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:owner_name">
+					<title>Owner name</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:seq_no">
+					<title>Serial Number</title>
+					<type>d:int</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_recipients">
+					<title>Recipient(s)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:recipients_names">
+					<title>Recipient name</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_received_date">
+					<title>Date Received</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ar_status">
+					<title>Status</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:ar_statusOptions" />
+					</constraints>
+
+				</property>
+				<property name="safe:is_confidential">
+					<title>Confidentiality Flag</title>
+					<type>d:boolean</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<default>false</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:doc_type">
+					<title>Document Type</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:doc_typeOptions" />
+					</constraints>
+				</property>
+				<property name="safe:ka_subarea">
+					<title>Sub Area</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:ka_subareaOptions" />
+					</constraints>
+				</property>
+				<property name="safe:ka_katco_no">
+					<title>Katco №</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:current_state">
+					<title>Current state</title>
+					<type>d:int</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_area">
+					<title>Area</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+					<constraints>
+						<constraint ref="safe:ka_areaOptions" />
+					</constraints>
+				</property>
+				<property name="safe:original_id">
+					<title>Original ID</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations>
+				<association name="safe:appendix">
+					<title>Appendices</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:safe_appendix</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+				<association name="safe:translation">
+					<title>Translations</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:pjc_translation</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:ar_management">
+			<title>SAFE Management Document</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:ka_owner">
+					<title>Writer</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_recipient">
+					<title>Recipient Company</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations>
+				<association name="safe:ar_management_attached">
+					<title>Links</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:ar_management</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:ar_general">
+			<title>SAFE General Document</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:ka_agreed_by">
+					<title>Agreed by</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_copy_to">
+					<title>Copy to</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_theme">
+					<title>Theme</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_keywords">
+					<title>Keywords</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_exp_resp_date">
+					<title>Expected response date</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_more_rec">
+					<title>More Recipient(s)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations>
+				<association name="safe:ar_general_attached">
+					<title>Links</title>
+					<source>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</source>
+					<target>
+						<class>safe:ar_general</class>
+						<mandatory>false</mandatory>
+						<many>true</many>
+					</target>
+				</association>
+			</associations>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:ar_projectdoc">
+			<title>SAFE Project Document</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:ka_rfm_nb">
+					<title>RFM Number</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_section">
+					<title>Section</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_unit">
+					<title>Unit</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:safe_tech_doc">
+			<title>SAFE Technical Document</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:ka_discipline">
+					<title>Discipline (K4K)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ar_exp_number">
+					<title>Operations Document Number</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_design_revision">
+					<title>Design Institute Revision</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ar_exp_flag">
+					<title>Operations needed</title>
+					<type>d:boolean</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<default>false</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_project_extension">
+					<title>Project Name</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:a_last_return_date">
+					<title>Last Return Date</title>
+					<type>d:datetime</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_building">
+					<title>Building</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ar_confidentiality">
+					<title>Confidential Level</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:ka_phase">
+					<title>Status (KZT)</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:a_last_return_code">
+					<title>Last Return Code</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="false">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:ka_folio">
+					<title>Folio Number</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:emc_mail_object">
+			<title>SAFE Mail Object</title>
+			<parent>safe:base</parent>
+			<properties>
+				<property name="safe:message_subject">
+					<title>Message subject</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:recipients_reasons">
+					<title>Reasons</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:send_sequentially">
+					<title>Send sequentially?</title>
+					<type>d:boolean</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<default>false</default>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:recipients_addresses">
+					<title>Recipient address</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+				<property name="safe:priority">
+					<title>Message priority</title>
+					<type>d:int</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+					</index>
+				</property>
+				<property name="safe:sender">
+					<title>Mail Sender</title>
+					<type>d:text</type>
+					<mandatory>false</mandatory>
+					<multiple>true</multiple>
+					<index enabled="true">
+						<tokenised>true</tokenised>
+						<facetable>false</facetable>
+					</index>
+				</property>
+			</properties>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+		<type name="safe:dm_document">
+			<title>SAFE Document</title>
+			<parent>safe:base</parent>
+			<properties/>
+			<associations/>
+			<overrides/>
+			<mandatory-aspects/>
+		</type>
+	</types>
+	<aspects/>
+</model>
