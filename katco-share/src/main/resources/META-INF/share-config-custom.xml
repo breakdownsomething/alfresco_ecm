@@ -19,7 +19,7 @@
     <config evaluator="string-compare" condition="DocumentLibrary">
         <aspects>
             <visible>
-                <aspect name="acme:securityClassified"/>
+                <!-- <aspect name="acme:securityClassified"/> -->
             </visible>
             <addable> <!-- defaults to visible config -->
             </addable>
@@ -28,9 +28,10 @@
         </aspects>
         <types>
             <!-- Define the ACME base doc type as decedent from cm:content -->
+            <!--
             <type name="cm:content">
                 <subtype name="acme:document"/>
-            </type>
+            </type> -->
 
             <type name="cm:folder">
                 <subtype name="katco:numerator"/>
@@ -80,9 +81,11 @@
                 <form labelId="search.form.label.cm_folder" descriptionId="search.form.desc.cm_folder">cm:folder</form>
 
                 <!-- Custom type -->
+                <!--
                 <form labelId="form.label.advancedsearch.acmeDocument"
                       descriptionId="form.description.advancedsearch.acmeDocument">acme:document
                 </form>
+                -->
                 <!-- Custom KATCO type -->
                 <form labelId="form.label.advancedsearch.katco_general" descriptionId="form.description.advancedsearch.katco_general">katco:general</form>
                 <form labelId="safe_SAFE-Legacy.type.safe_safe_tech_doc.title" descriptionId="search.form.label.safe_tech_doc">safe:safe_tech_doc</form>
